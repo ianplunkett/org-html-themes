@@ -1,21 +1,21 @@
 
 /** bigblow.js --- BigBlow JS file
-//
-// Copyright (C) 2011-2014 All Right Reserved, Fabrice Niessen
-//
-// This file is free software: you can redistribute it and/or
-// modify it under the terms of the GNU General Public License as
-// published by the Free Software Foundation, either version 3 of
-// the License, or (at your option) any later version.
-//
-// This file is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-// GNU General Public License for more details.
-//
-// Author: Fabrice Niessen <(concat "fniessen" at-sign "pirilampo.org")>
-// URL: https://github.com/fniessen/org-html-themes/
-// Version: 20140515.1841
+ //
+ // Copyright (C) 2011-2014 All Right Reserved, Fabrice Niessen
+ //
+ // This file is free software: you can redistribute it and/or
+ // modify it under the terms of the GNU General Public License as
+ // published by the Free Software Foundation, either version 3 of
+ // the License, or (at your option) any later version.
+ //
+ // This file is distributed in the hope that it will be useful,
+ // but WITHOUT ANY WARRANTY; without even the implied warranty of
+ // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ // GNU General Public License for more details.
+ //
+ // Author: Fabrice Niessen <(concat "fniessen" at-sign "pirilampo.org")>
+ // URL: https://github.com/fniessen/org-html-themes/
+ // Version: 20140515.1841
  */
 
 // wrap FIXME & XXX in a span element
@@ -24,12 +24,12 @@ $(function() {
         html(function(index, old) {
             return old.replace('FIXME',
                                '<span class="fixme">FIXME</span>');
-    });
+        });
     $('p').
         html(function(index, old) {
             return old.replace('XXX',
                                '<span class="fixme">XXX</span>');
-    });
+        });
 });
 
 // Remove leading section number
@@ -143,17 +143,17 @@ $(document).ready(function() {
 $(function() {
     $('li > code :contains("[X]")')
         .parent()
-            .addClass('checked')
+        .addClass('checked')
         .end()
         .remove();
     $('li > code :contains("[-]")')
         .parent()
-            .addClass('halfchecked')
+        .addClass('halfchecked')
         .end()
         .remove();
     $('li > code :contains("[ ]")')
         .parent()
-            .addClass('unchecked')
+        .addClass('unchecked')
         .end()
         .remove();
 });
@@ -223,7 +223,7 @@ $(function() {
             case 'DONE': return 8;
             case 'CANX': return 9;
             default: return 0;
-            }
+        }
     }
 
     function compareTodo(a, b) {
@@ -280,7 +280,7 @@ $(function() {
     // assign the counts (avoid double-counting elements from the ToC)
     $('span.tag').not($('#table-of-contents span.tag')).each(function() {
         var $thisTagGroup = $(this).text().trim().split(/\s/);
-                                        // \s matches spaces, tabs, new lines, etc.
+        // \s matches spaces, tabs, new lines, etc.
 
         for (tag in $thisTagGroup) {
             if ($.inArray($thisTagGroup[tag], listOfTags) == -1) {
@@ -345,7 +345,7 @@ function togglePanel(e) {
     $("#right-panel-contents").toggleClass('active').toggle(200);
 
     var slidePos =
-        $("#left-panel-button").css("left") == "-23px"? '182px': '-23px';
+            $("#left-panel-button").css("left") == "-23px"? '182px': '-23px';
 
     $("#left-panel-button").
         animate({"left": slidePos, "opacity": 0.9}, {duration: "200" });
@@ -385,7 +385,7 @@ function tabifySections() {
         .each(function() {
             // Remove TODO keywords and tags (contained in spans)
             var tabText = $(this).clone().find('span').remove().end()
-                .text().trim();
+                    .text().trim();
             var tabId = $(this).parent().attr('id');
             if (tabText) {
                 // - remove heading number (all leading digits)
@@ -422,7 +422,7 @@ function selectTabAndScroll(href) {
     var targetTabAriaLabel = targetTab.attr('aria-labelledby');
 
     var targetTabIndex = $("#content ul li")
-        .index($('[aria-labelledby="' + targetTabAriaLabel + '"]'));
+            .index($('[aria-labelledby="' + targetTabAriaLabel + '"]'));
 
     // Activate target tab
     $('#content').tabs('option', 'active', targetTabIndex);
@@ -492,9 +492,9 @@ function orgDefkey(e) {
         case "p": // previous
             clickPreviousTab();
             break;
-        // case "b": // scroll down - should be mapped to Shift-SPC
-        //     $(window).scrollTop($(window).scrollTop()-$(window).height());
-        //     break;
+            // case "b": // scroll down - should be mapped to Shift-SPC
+            //     $(window).scrollTop($(window).scrollTop()-$(window).height());
+            //     break;
         case "<": // scroll to top
             $(window).scrollTop(0);
             break;
